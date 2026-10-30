@@ -1,0 +1,10 @@
+# Local development only. In production, deploy the sea-router and app as
+# separate Railway services and use Railway private networking.
+services:
+  sea-router:
+    image: ghcr.io/auto-sea-way/asw:0.10.0-full
+    environment:
+      ASW_API_KEY: ${ASW_API_KEY:-local-development-change-me}
+    ports:
+      - "3000:3000"
+    restart: unless-stopped
